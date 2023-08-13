@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import { Sidebar as ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
 import {Link} from 'react-router-dom';
@@ -39,7 +39,20 @@ const Sidebar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const menuRef = useRef(null);
     const [selected, setSelected] = useState('Dashboard');
+
+    const setInitialSelected = () => {
+        const menu = menuRef.current;
+
+        if (!menu) return;
+
+        const currentPath = window.location.pathname || '/';
+        const currentSelected = menu.querySelector(`a[href="${currentPath}"]`).innerText;
+        setSelected(currentSelected);
+    }
+
+    useEffect(setInitialSelected, []);
 
     return (
         <Box
@@ -153,7 +166,7 @@ const Sidebar = () => {
                     </Box>
 
                     {/*  Menu Items  */}
-                    <Box paddingLeft={isCollapsed ? null : "10%"} style={{paddingLeft: '0'}}>
+                    <Box paddingLeft={isCollapsed ? null : "10%"} style={{paddingLeft: '0'}} ref={menuRef}>
                         <Item
                             title="Dashboard"
                             to="/"

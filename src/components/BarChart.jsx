@@ -54,6 +54,12 @@ const BarChart = ({isDashboard = false}) => {
                         }
                     }
                 },
+                tooltip: {
+                    container: {
+                        background: colors.primary[500],
+                        fontSize: 15
+                    }
+                }
             }}
             indexBy="country"
             margin={{top: 50, right: 130, bottom: 50, left: 60}}

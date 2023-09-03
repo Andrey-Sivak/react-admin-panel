@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect} from 'react';
+import {useState, useRef, /*useEffect*/} from 'react';
 import { Sidebar as ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
 import {Link} from 'react-router-dom';
@@ -42,15 +42,15 @@ const Sidebar = () => {
     const menuRef = useRef(null);
     const [selected, setSelected] = useState('Dashboard');
 
-    const setInitialSelected = () => {
-        const menu = menuRef.current;
-
-        if (!menu) return;
-
-        const currentPath = window.location.pathname || '/';
-        const currentSelected = menu.querySelector(`a[href="${currentPath}"]`).innerText;
-        setSelected(currentSelected);
-    }
+    // const setInitialSelected = () => {
+    //     const menu = menuRef.current;
+    //
+    //     if (!menu) return;
+    //
+    //     const currentPath = window.location.pathname || '/';
+    //     const currentSelected = menu.querySelector(`a[href="${currentPath}"]`).innerText;
+    //     setSelected(currentSelected);
+    // }
 
     // useEffect(setInitialSelected, []);
 

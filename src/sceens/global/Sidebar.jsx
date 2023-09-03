@@ -52,7 +52,7 @@ const Sidebar = () => {
         setSelected(currentSelected);
     }
 
-    useEffect(setInitialSelected, []);
+    // useEffect(setInitialSelected, []);
 
     return (
         <Box

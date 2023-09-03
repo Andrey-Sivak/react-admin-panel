@@ -1,7 +1,7 @@
-import {useState, useRef, /*useEffect*/} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import { Sidebar as ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {tokens} from "../../theme";
 /** icons */
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -16,6 +16,20 @@ import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+
+const routeMapping = [
+    { path: '/', title: 'Dashboard' },
+    { path: '/team', title: 'Manage Team' },
+    { path: '/contacts', title: 'Contacts Information' },
+    { path: '/invoices', title: 'Invoices Balances' },
+    { path: '/form', title: 'Profile Form' },
+    { path: '/calendar', title: 'Calendar' },
+    { path: '/faq', title: 'FAQ Page' },
+    { path: '/bar', title: 'Bar Chart' },
+    { path: '/pie', title: 'Pie Chart' },
+    { path: '/line', title: 'Line Chart' },
+    { path: '/geography', title: 'Geography Chart' },
+];
 
 const Item = ({title, to, icon, selected, setSelected}) => {
 
@@ -40,19 +54,14 @@ const Sidebar = () => {
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const menuRef = useRef(null);
-    const [selected, setSelected] = useState('Dashboard');
+    const [selected, setSelected] = useState(null);
+    const location = useLocation();
+    const currentPath = location.pathname;
 
-    // const setInitialSelected = () => {
-    //     const menu = menuRef.current;
-    //
-    //     if (!menu) return;
-    //
-    //     const currentPath = window.location.pathname || '/';
-    //     const currentSelected = menu.querySelector(`a[href="${currentPath}"]`).innerText;
-    //     setSelected(currentSelected);
-    // }
-
-    // useEffect(setInitialSelected, []);
+    useEffect(
+        () => setSelected(routeMapping.find(route => route.path === currentPath)?.title || 'Dashboard'),
+        [currentPath]
+    )
 
     return (
         <Box

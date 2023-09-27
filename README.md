@@ -4,6 +4,15 @@
 
 ## Tools Used
 
+<img src="./presentation/js.png" width="75" height="75" />&nbsp;
+<img src="./presentation/react.png" width="75" height="75" />&nbsp;
+<img src="./presentation/react-router.jpg" width="75" height="75" />&nbsp;
+<img src="./presentation/mui.png" width="75" height="75" />&nbsp;
+<img src="./presentation/nivo.png" width="75" height="75" />&nbsp;
+<img src="./presentation/cal.png" width="75" height="75" />&nbsp;
+<img src="./presentation/formik.webp" width="120" height="75" />&nbsp;
+
+✔️ JavaScript\
 ✔️ React\
 ✔️ React Router\
 ✔️ Material UI\
@@ -22,15 +31,15 @@ Here you can see my experience with React and some related technologies and libs
 ├── node_modules
 ├── src
 │   ├── components
-│   │   ├── reusable components
+│   │   └── reusable components
 │   ├── data
-│   │   ├── data jsons
+│   │   └── data jsons
 │   ├── sceens
-│   │   ├── pages
+│   │   └── pages
 │   ├── App.js
 │   ├── index.css
 │   ├── index.js
-│   ├── theme.js
+│   └── theme.js
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
